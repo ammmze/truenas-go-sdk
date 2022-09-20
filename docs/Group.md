@@ -4,23 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
-**Gid** | Pointer to **int32** |  | [optional] 
-**Group** | **string** |  | 
-**Builtin** | Pointer to **bool** |  | [optional] 
-**Sudo** | Pointer to **bool** |  | [optional] 
-**SudoNopasswd** | Pointer to **bool** |  | [optional] 
-**SudoCommands** | Pointer to **[]string** |  | [optional] 
-**Smb** | Pointer to **bool** |  | [optional] 
-**Users** | Pointer to **[]int32** |  | [optional] 
-**Local** | Pointer to **bool** |  | [optional] 
-**IdTypeBoth** | Pointer to **bool** |  | [optional] 
+**Portal** | Pointer to **int32** |  | [optional] 
+**Initiator** | Pointer to **NullableInt32** |  | [optional] 
+**Authmethod** | Pointer to **string** |  | [optional] [default to "NONE"]
+**Auth** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
 ### NewGroup
 
-`func NewGroup(id int32, group string, ) *Group`
+`func NewGroup() *Group`
 
 NewGroup instantiates a new Group object
 This constructor will assign default values to properties that have it defined,
@@ -35,271 +28,126 @@ NewGroupWithDefaults instantiates a new Group object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetPortal
 
-`func (o *Group) GetId() int32`
+`func (o *Group) GetPortal() int32`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetPortal returns the Portal field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetPortalOk
 
-`func (o *Group) GetIdOk() (*int32, bool)`
+`func (o *Group) GetPortalOk() (*int32, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetPortalOk returns a tuple with the Portal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetPortal
 
-`func (o *Group) SetId(v int32)`
+`func (o *Group) SetPortal(v int32)`
 
-SetId sets Id field to given value.
+SetPortal sets Portal field to given value.
 
+### HasPortal
 
-### GetGid
+`func (o *Group) HasPortal() bool`
 
-`func (o *Group) GetGid() int32`
+HasPortal returns a boolean if a field has been set.
 
-GetGid returns the Gid field if non-nil, zero value otherwise.
+### GetInitiator
 
-### GetGidOk
+`func (o *Group) GetInitiator() int32`
 
-`func (o *Group) GetGidOk() (*int32, bool)`
+GetInitiator returns the Initiator field if non-nil, zero value otherwise.
 
-GetGidOk returns a tuple with the Gid field if it's non-nil, zero value otherwise
+### GetInitiatorOk
+
+`func (o *Group) GetInitiatorOk() (*int32, bool)`
+
+GetInitiatorOk returns a tuple with the Initiator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGid
+### SetInitiator
 
-`func (o *Group) SetGid(v int32)`
+`func (o *Group) SetInitiator(v int32)`
 
-SetGid sets Gid field to given value.
+SetInitiator sets Initiator field to given value.
 
-### HasGid
+### HasInitiator
 
-`func (o *Group) HasGid() bool`
+`func (o *Group) HasInitiator() bool`
 
-HasGid returns a boolean if a field has been set.
+HasInitiator returns a boolean if a field has been set.
 
-### GetGroup
+### SetInitiatorNil
 
-`func (o *Group) GetGroup() string`
+`func (o *Group) SetInitiatorNil(b bool)`
 
-GetGroup returns the Group field if non-nil, zero value otherwise.
+ SetInitiatorNil sets the value for Initiator to be an explicit nil
 
-### GetGroupOk
+### UnsetInitiator
+`func (o *Group) UnsetInitiator()`
 
-`func (o *Group) GetGroupOk() (*string, bool)`
+UnsetInitiator ensures that no value is present for Initiator, not even an explicit nil
+### GetAuthmethod
 
-GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+`func (o *Group) GetAuthmethod() string`
+
+GetAuthmethod returns the Authmethod field if non-nil, zero value otherwise.
+
+### GetAuthmethodOk
+
+`func (o *Group) GetAuthmethodOk() (*string, bool)`
+
+GetAuthmethodOk returns a tuple with the Authmethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGroup
+### SetAuthmethod
 
-`func (o *Group) SetGroup(v string)`
+`func (o *Group) SetAuthmethod(v string)`
 
-SetGroup sets Group field to given value.
+SetAuthmethod sets Authmethod field to given value.
 
+### HasAuthmethod
 
-### GetBuiltin
+`func (o *Group) HasAuthmethod() bool`
 
-`func (o *Group) GetBuiltin() bool`
+HasAuthmethod returns a boolean if a field has been set.
 
-GetBuiltin returns the Builtin field if non-nil, zero value otherwise.
+### GetAuth
 
-### GetBuiltinOk
+`func (o *Group) GetAuth() int32`
 
-`func (o *Group) GetBuiltinOk() (*bool, bool)`
+GetAuth returns the Auth field if non-nil, zero value otherwise.
 
-GetBuiltinOk returns a tuple with the Builtin field if it's non-nil, zero value otherwise
+### GetAuthOk
+
+`func (o *Group) GetAuthOk() (*int32, bool)`
+
+GetAuthOk returns a tuple with the Auth field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBuiltin
+### SetAuth
 
-`func (o *Group) SetBuiltin(v bool)`
+`func (o *Group) SetAuth(v int32)`
 
-SetBuiltin sets Builtin field to given value.
+SetAuth sets Auth field to given value.
 
-### HasBuiltin
+### HasAuth
 
-`func (o *Group) HasBuiltin() bool`
+`func (o *Group) HasAuth() bool`
 
-HasBuiltin returns a boolean if a field has been set.
+HasAuth returns a boolean if a field has been set.
 
-### GetSudo
+### SetAuthNil
 
-`func (o *Group) GetSudo() bool`
+`func (o *Group) SetAuthNil(b bool)`
 
-GetSudo returns the Sudo field if non-nil, zero value otherwise.
+ SetAuthNil sets the value for Auth to be an explicit nil
 
-### GetSudoOk
+### UnsetAuth
+`func (o *Group) UnsetAuth()`
 
-`func (o *Group) GetSudoOk() (*bool, bool)`
-
-GetSudoOk returns a tuple with the Sudo field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSudo
-
-`func (o *Group) SetSudo(v bool)`
-
-SetSudo sets Sudo field to given value.
-
-### HasSudo
-
-`func (o *Group) HasSudo() bool`
-
-HasSudo returns a boolean if a field has been set.
-
-### GetSudoNopasswd
-
-`func (o *Group) GetSudoNopasswd() bool`
-
-GetSudoNopasswd returns the SudoNopasswd field if non-nil, zero value otherwise.
-
-### GetSudoNopasswdOk
-
-`func (o *Group) GetSudoNopasswdOk() (*bool, bool)`
-
-GetSudoNopasswdOk returns a tuple with the SudoNopasswd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSudoNopasswd
-
-`func (o *Group) SetSudoNopasswd(v bool)`
-
-SetSudoNopasswd sets SudoNopasswd field to given value.
-
-### HasSudoNopasswd
-
-`func (o *Group) HasSudoNopasswd() bool`
-
-HasSudoNopasswd returns a boolean if a field has been set.
-
-### GetSudoCommands
-
-`func (o *Group) GetSudoCommands() []string`
-
-GetSudoCommands returns the SudoCommands field if non-nil, zero value otherwise.
-
-### GetSudoCommandsOk
-
-`func (o *Group) GetSudoCommandsOk() (*[]string, bool)`
-
-GetSudoCommandsOk returns a tuple with the SudoCommands field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSudoCommands
-
-`func (o *Group) SetSudoCommands(v []string)`
-
-SetSudoCommands sets SudoCommands field to given value.
-
-### HasSudoCommands
-
-`func (o *Group) HasSudoCommands() bool`
-
-HasSudoCommands returns a boolean if a field has been set.
-
-### GetSmb
-
-`func (o *Group) GetSmb() bool`
-
-GetSmb returns the Smb field if non-nil, zero value otherwise.
-
-### GetSmbOk
-
-`func (o *Group) GetSmbOk() (*bool, bool)`
-
-GetSmbOk returns a tuple with the Smb field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSmb
-
-`func (o *Group) SetSmb(v bool)`
-
-SetSmb sets Smb field to given value.
-
-### HasSmb
-
-`func (o *Group) HasSmb() bool`
-
-HasSmb returns a boolean if a field has been set.
-
-### GetUsers
-
-`func (o *Group) GetUsers() []int32`
-
-GetUsers returns the Users field if non-nil, zero value otherwise.
-
-### GetUsersOk
-
-`func (o *Group) GetUsersOk() (*[]int32, bool)`
-
-GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUsers
-
-`func (o *Group) SetUsers(v []int32)`
-
-SetUsers sets Users field to given value.
-
-### HasUsers
-
-`func (o *Group) HasUsers() bool`
-
-HasUsers returns a boolean if a field has been set.
-
-### GetLocal
-
-`func (o *Group) GetLocal() bool`
-
-GetLocal returns the Local field if non-nil, zero value otherwise.
-
-### GetLocalOk
-
-`func (o *Group) GetLocalOk() (*bool, bool)`
-
-GetLocalOk returns a tuple with the Local field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLocal
-
-`func (o *Group) SetLocal(v bool)`
-
-SetLocal sets Local field to given value.
-
-### HasLocal
-
-`func (o *Group) HasLocal() bool`
-
-HasLocal returns a boolean if a field has been set.
-
-### GetIdTypeBoth
-
-`func (o *Group) GetIdTypeBoth() bool`
-
-GetIdTypeBoth returns the IdTypeBoth field if non-nil, zero value otherwise.
-
-### GetIdTypeBothOk
-
-`func (o *Group) GetIdTypeBothOk() (*bool, bool)`
-
-GetIdTypeBothOk returns a tuple with the IdTypeBoth field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdTypeBoth
-
-`func (o *Group) SetIdTypeBoth(v bool)`
-
-SetIdTypeBoth sets IdTypeBoth field to given value.
-
-### HasIdTypeBoth
-
-`func (o *Group) HasIdTypeBoth() bool`
-
-HasIdTypeBoth returns a boolean if a field has been set.
-
+UnsetAuth ensures that no value is present for Auth, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

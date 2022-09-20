@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: TrueNAS RESTful API
+  version: v2.0
+paths:
+  /core/bulk:
+    post:
+      tags:
+        - core
+      responses:
+        Success:
+          description: Operation succeeded
+      parameters: []
+      description: |-
+        Will loop on a list of items for the given method, returning a list of
+        dicts containing a result and error key.
+
+        `description` contains format string for job progress (e.g. "Deleting snapshot {0[dataset]}@{0[name]}")
+
+        Result will be the message returned by the method being called,
+        or a string of an error, in which case the error key will be the
+        exception
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/core_bulk'
+components:
+  _name_: foo
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: APIKey
+  schemas:
+    core_bulk:
+      type: object
+      required:
+        - user
+        - command
+      properties:
+        user:
+          type:
+            - string
+            - integer
+            - "null"
+        command:
+          type: string
+        description:
+          type: string
+        enabled:
+          type: boolean
+        stdout:
+          type: boolean
+        stderr:
+          type: boolean
+        foo1:
+          type: object
+          default: {}
+        foo2:
+          type:
+            - string
+            - object
+            - "null"
+          default: {}

@@ -1,234 +1,22 @@
 # \GroupApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://truenas.example.com/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateGroup**](GroupApi.md#CreateGroup) | **Post** /group | 
-[**DeleteGroup**](GroupApi.md#DeleteGroup) | **Delete** /group/id/{id} | 
-[**GetGroup**](GroupApi.md#GetGroup) | **Get** /group/id/{id} | 
-[**ListGroups**](GroupApi.md#ListGroups) | **Get** /group | 
-[**UpdateGroup**](GroupApi.md#UpdateGroup) | **Put** /group/id/{id} | 
+[**GroupGet**](GroupApi.md#GroupGet) | **Get** /group | 
+[**GroupGetGroupObjPost**](GroupApi.md#GroupGetGroupObjPost) | **Post** /group/get_group_obj | 
+[**GroupGetNextGidGet**](GroupApi.md#GroupGetNextGidGet) | **Get** /group/get_next_gid | 
+[**GroupIdIdDelete**](GroupApi.md#GroupIdIdDelete) | **Delete** /group/id/{id} | 
+[**GroupIdIdGet**](GroupApi.md#GroupIdIdGet) | **Get** /group/id/{id} | 
+[**GroupIdIdPut**](GroupApi.md#GroupIdIdPut) | **Put** /group/id/{id} | 
+[**GroupPost**](GroupApi.md#GroupPost) | **Post** /group | 
 
 
 
-## CreateGroup
+## GroupGet
 
-> int32 CreateGroup(ctx).CreateGroupParams(createGroupParams).Execute()
-
-
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    createGroupParams := *openapiclient.NewCreateGroupParams("Name_example") // CreateGroupParams |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.CreateGroup(context.Background()).CreateGroupParams(createGroupParams).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.CreateGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateGroup`: int32
-    fmt.Fprintf(os.Stdout, "Response from `GroupApi.CreateGroup`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createGroupParams** | [**CreateGroupParams**](CreateGroupParams.md) |  | 
-
-### Return type
-
-**int32**
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DeleteGroup
-
-> DeleteGroup(ctx, id).DeleteGroupParams(deleteGroupParams).Execute()
-
-
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := int32(56) // int32 | 
-    deleteGroupParams := *openapiclient.NewDeleteGroupParams() // DeleteGroupParams |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.DeleteGroup(context.Background(), id).DeleteGroupParams(deleteGroupParams).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.DeleteGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **deleteGroupParams** | [**DeleteGroupParams**](DeleteGroupParams.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetGroup
-
-> Group GetGroup(ctx, id).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
-
-
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    id := int32(56) // int32 | 
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
-    count := true // bool |  (optional)
-    sort := "sort_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.GetGroup(context.Background(), id).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GetGroup``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetGroup`: Group
-    fmt.Fprintf(os.Stdout, "Response from `GroupApi.GetGroup`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **limit** | **int32** |  | 
- **offset** | **int32** |  | 
- **count** | **bool** |  | 
- **sort** | **string** |  | 
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListGroups
-
-> ListGroups(ctx).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
+> GroupGet(ctx).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
 
 
 
@@ -254,9 +42,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.ListGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
+    resp, r, err := apiClient.GroupApi.GroupGet(context.Background()).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.ListGroups``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -268,7 +56,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListGroupsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGroupGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -284,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -296,9 +84,132 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateGroup
+## GroupGetGroupObjPost
 
-> int32 UpdateGroup(ctx, id).CreateGroupParams(createGroupParams).Execute()
+> GroupGetGroupObjPost(ctx).GroupGetGroupObj0(groupGetGroupObj0).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    groupGetGroupObj0 := *openapiclient.NewGroupGetGroupObj0() // GroupGetGroupObj0 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.GroupGetGroupObjPost(context.Background()).GroupGetGroupObj0(groupGetGroupObj0).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupGetGroupObjPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupGetGroupObjPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupGetGroupObj0** | [**GroupGetGroupObj0**](GroupGetGroupObj0.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupGetNextGidGet
+
+> GroupGetNextGidGet(ctx).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.GroupGetNextGidGet(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupGetNextGidGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupGetNextGidGetRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupIdIdDelete
+
+> GroupIdIdDelete(ctx, id).Execute()
 
 
 
@@ -318,17 +229,14 @@ import (
 
 func main() {
     id := int32(56) // int32 | 
-    createGroupParams := *openapiclient.NewCreateGroupParams("Name_example") // CreateGroupParams |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.UpdateGroup(context.Background(), id).CreateGroupParams(createGroupParams).Execute()
+    resp, r, err := apiClient.GroupApi.GroupIdIdDelete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.UpdateGroup``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupIdIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateGroup`: int32
-    fmt.Fprintf(os.Stdout, "Response from `GroupApi.UpdateGroup`: %v\n", resp)
 }
 ```
 
@@ -342,26 +250,225 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateGroupRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGroupIdIdDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createGroupParams** | [**CreateGroupParams**](CreateGroupParams.md) |  | 
 
 ### Return type
 
-**int32**
+ (empty response body)
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupIdIdGet
+
+> GroupIdIdGet(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.GroupIdIdGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupIdIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupIdIdGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupIdIdPut
+
+> GroupIdIdPut(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.GroupIdIdPut(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupIdIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupIdIdPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupPost
+
+> GroupPost(ctx).GroupCreate0(groupCreate0).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    groupCreate0 := *openapiclient.NewGroupCreate0() // GroupCreate0 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.GroupPost(context.Background()).GroupCreate0(groupCreate0).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.GroupPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupCreate0** | [**GroupCreate0**](GroupCreate0.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basic](../README.md#basic)
 
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -1,3 +1,5 @@
 packageName: truenas
 isGoSubmodule: false
 disallowAdditionalPropertiesIfNotPresent: false
+enumClassPrefix: true
+structPrefix: true
